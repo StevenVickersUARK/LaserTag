@@ -1,1 +1,0 @@
-typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"edu.uark.csce3513.team18.lasertag","l":"Database"},{"p":"edu.uark.csce3513.team18.lasertag","l":"Main"},{"p":"edu.uark.csce3513.team18.lasertag","l":"Player"}];updateSearchResults();

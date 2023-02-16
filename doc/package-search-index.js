@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"edu.uark.csce3513.team18.lasertag"}];updateSearchResults();
