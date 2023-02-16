@@ -1,4 +1,10 @@
+package edu.uark.csce3513.team18.lasertag;
+
 import java.awt.*;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+
 import javax.swing.*;
 
 public class splashScreen extends JFrame
@@ -11,7 +17,20 @@ public class splashScreen extends JFrame
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.getContentPane().setBackground(Color.black);
 
-        ImageIcon logo = new ImageIcon("logo.jpg"); // path needs to be changed before file is merged
+        ClassLoader classloader = Thread.currentThread().getContextClassLoader();
+        InputStream is = classloader.getResourceAsStream("logo.jpg");
+        ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+        int nRead;
+        byte[] data = new byte[16384];
+
+        try {
+            while ((nRead = is.read(data, 0, data.length)) != -1) {
+                buffer.write(data, 0, nRead);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        ImageIcon logo = new ImageIcon(buffer.toByteArray()); // path needs to be changed before file is merged
         Image tempImage1 = logo.getImage();
         Image tempImage2 = tempImage1.getScaledInstance(1280, 720, Image.SCALE_SMOOTH); // resizing image
         logo = new ImageIcon(tempImage2);
@@ -35,10 +54,4 @@ public class splashScreen extends JFrame
         }
         this.setVisible(false);
     }
-    /*
-    public static void main(String[] args) 
-    {
-        splashScreen splash = new splashScreen(); // declare splashScreen and call from main.java
-        splash.showSplashScreen();
-    }
-    */
+}
