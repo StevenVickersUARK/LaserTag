@@ -120,6 +120,7 @@ public class Main {
 		} catch (SQLException ex) {
 			System.err.println("Unable to connect to the database.");
 			ex.printStackTrace();
+			System.exit(1);
 		}
 
 		printMenu();
