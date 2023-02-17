@@ -53,5 +53,9 @@ public class splashScreen extends JFrame
             e.printStackTrace();
         }
         this.setVisible(false);
+
+        
+
+
     }
 }

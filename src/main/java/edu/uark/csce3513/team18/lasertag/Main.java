@@ -5,5 +5,8 @@ public class Main {
     {
         splashScreen splash = new splashScreen(); // declare splashScreen and call from main.java
         splash.showSplashScreen();
+
+        Entry entry = new Entry();
+        entry.showEntryScreen();
     }
 }
