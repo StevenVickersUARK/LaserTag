@@ -26,7 +26,6 @@ public class Entry extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        textArea1 = new java.awt.TextArea();
         blueTeam = new javax.swing.JLabel();
         redTeam = new javax.swing.JLabel();
         blueID1 = new javax.swing.JTextField();
@@ -120,6 +119,10 @@ public class Entry extends javax.swing.JFrame {
         redCount14 = new javax.swing.JLabel();
         redCount15 = new javax.swing.JLabel();
         editPlayers = new javax.swing.JToggleButton();
+        bluePlayerIDLabel = new javax.swing.JLabel();
+        redPlayerIDLabel = new javax.swing.JLabel();
+        redPlayerCodenameLabel = new javax.swing.JLabel();
+        bluePlayerCodenameLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -127,23 +130,140 @@ public class Entry extends javax.swing.JFrame {
 
         redTeam.setText("RED TEAM");
 
+        blueID1.setEditable(false);
         blueID1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 blueID1ActionPerformed(evt);
             }
         });
 
+        blueID2.setEditable(false);
         blueID2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 blueID2ActionPerformed(evt);
             }
         });
 
+        blueID3.setEditable(false);
+
+        blueID4.setEditable(false);
+
+        blueID5.setEditable(false);
+
+        blueID6.setEditable(false);
+
+        blueID7.setEditable(false);
+
+        blueID8.setEditable(false);
+
+        blueID9.setEditable(false);
+
+        blueID10.setEditable(false);
+
+        blueID11.setEditable(false);
+
+        blueID12.setEditable(false);
+
+        blueID13.setEditable(false);
+
+        blueID14.setEditable(false);
+
+        blueID15.setEditable(false);
         blueID15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 blueID15ActionPerformed(evt);
             }
         });
+
+        redID1.setEditable(false);
+
+        redID2.setEditable(false);
+
+        redID3.setEditable(false);
+
+        redID4.setEditable(false);
+
+        redID5.setEditable(false);
+
+        redID6.setEditable(false);
+
+        redID7.setEditable(false);
+
+        redID8.setEditable(false);
+
+        redID9.setEditable(false);
+
+        redID10.setEditable(false);
+
+        redID11.setEditable(false);
+
+        redID12.setEditable(false);
+
+        redID13.setEditable(false);
+
+        redID14.setEditable(false);
+
+        redID15.setEditable(false);
+
+        blueNickname1.setEditable(false);
+
+        blueNickname2.setEditable(false);
+
+        blueNickname3.setEditable(false);
+
+        blueNickname4.setEditable(false);
+
+        blueNickname5.setEditable(false);
+
+        blueNickname6.setEditable(false);
+
+        blueNickname7.setEditable(false);
+
+        blueNickname8.setEditable(false);
+
+        blueNickname9.setEditable(false);
+
+        blueNickname10.setEditable(false);
+
+        blueNickname11.setEditable(false);
+
+        blueNickname12.setEditable(false);
+
+        blueNickname13.setEditable(false);
+
+        blueNickname14.setEditable(false);
+
+        blueNickname15.setEditable(false);
+
+        redNickname1.setEditable(false);
+
+        redNickname2.setEditable(false);
+
+        redNickname3.setEditable(false);
+
+        redNickname4.setEditable(false);
+
+        redNickname5.setEditable(false);
+
+        redNickname6.setEditable(false);
+
+        redNickname7.setEditable(false);
+
+        redNickname8.setEditable(false);
+
+        redNickname9.setEditable(false);
+
+        redNickname10.setEditable(false);
+
+        redNickname11.setEditable(false);
+
+        redNickname12.setEditable(false);
+
+        redNickname13.setEditable(false);
+
+        redNickname14.setEditable(false);
+
+        redNickname15.setEditable(false);
 
         blueCount1.setText("01");
 
@@ -212,34 +332,47 @@ public class Entry extends javax.swing.JFrame {
             }
         });
 
+        bluePlayerIDLabel.setText("ID");
+
+        redPlayerIDLabel.setText("ID");
+
+        redPlayerCodenameLabel.setText("Codename");
+
+        bluePlayerCodenameLabel.setText("Codename");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(blueCount15)
+                    .addComponent(blueCount14)
+                    .addComponent(blueCount13)
+                    .addComponent(blueCount12)
+                    .addComponent(blueCount11)
+                    .addComponent(blueCount10)
+                    .addComponent(blueCount9)
+                    .addComponent(blueCount8)
+                    .addComponent(blueCount7)
+                    .addComponent(blueCount6)
+                    .addComponent(blueCount5)
+                    .addComponent(blueCount4)
+                    .addComponent(blueCount3)
+                    .addComponent(blueCount2)
+                    .addComponent(blueCount1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(blueTeam)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(blueCount15)
-                            .addComponent(blueCount14)
-                            .addComponent(blueCount13)
-                            .addComponent(blueCount12)
-                            .addComponent(blueCount11)
-                            .addComponent(blueCount10)
-                            .addComponent(blueCount9)
-                            .addComponent(blueCount8)
-                            .addComponent(blueCount7)
-                            .addComponent(blueCount6)
-                            .addComponent(blueCount5)
-                            .addComponent(blueCount4)
-                            .addComponent(blueCount3)
-                            .addComponent(blueCount2)
-                            .addComponent(blueCount1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(blueID15, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(blueNickname15, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(editPlayers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(blueID2, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -257,7 +390,10 @@ public class Entry extends javax.swing.JFrame {
                                             .addComponent(blueID4, javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(blueID3, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addComponent(blueID1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(bluePlayerIDLabel))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(bluePlayerCodenameLabel)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(blueNickname13, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(blueNickname12, javax.swing.GroupLayout.Alignment.LEADING)
@@ -272,13 +408,8 @@ public class Entry extends javax.swing.JFrame {
                                     .addComponent(blueNickname3, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(blueNickname2, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(blueNickname1, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(blueNickname14, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(blueID15, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(blueNickname15, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(editPlayers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                                    .addComponent(blueNickname14, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -292,7 +423,6 @@ public class Entry extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(redNickname14)
                             .addComponent(redNickname15)))
-                    .addComponent(redTeam)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(redCount2)
@@ -339,9 +469,14 @@ public class Entry extends javax.swing.JFrame {
                                     .addComponent(redNickname12)
                                     .addComponent(redNickname13)))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(redID1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(redID1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(redPlayerIDLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(redTeam))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(redNickname1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(redNickname1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(redPlayerCodenameLabel))))))
                 .addGap(20, 20, 20))
         );
         layout.setVerticalGroup(
@@ -351,6 +486,10 @@ public class Entry extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(26, 26, 26)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(redPlayerIDLabel)
+                            .addComponent(redPlayerCodenameLabel))
+                        .addGap(2, 2, 2)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(redID1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(redNickname1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -451,6 +590,10 @@ public class Entry extends javax.swing.JFrame {
                             .addComponent(redTeam))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(bluePlayerIDLabel)
+                            .addComponent(bluePlayerCodenameLabel))
+                        .addGap(3, 3, 3)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(blueID1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(blueCount1)
                             .addComponent(blueNickname1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -538,39 +681,10 @@ public class Entry extends javax.swing.JFrame {
                             .addComponent(blueID15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(blueNickname15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(blueCount15))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(editPlayers))
         );
-        blueID1.setEditable(false);
-            blueID2.setEditable(false);
-            blueID3.setEditable(false);
-            blueID4.setEditable(false);
-            blueID5.setEditable(false);
-            blueID6.setEditable(false);
-            blueID7.setEditable(false);
-            blueID8.setEditable(false);
-            blueID9.setEditable(false);
-            blueID10.setEditable(false);
-            blueID11.setEditable(false);
-            blueID12.setEditable(false);
-            blueID13.setEditable(false);
-            blueID14.setEditable(false);
-            blueID15.setEditable(false);
-            blueNickname1.setEditable(false);
-            blueNickname2.setEditable(false);
-            blueNickname3.setEditable(false);
-            blueNickname4.setEditable(false);
-            blueNickname5.setEditable(false);
-            blueNickname6.setEditable(false);
-            blueNickname7.setEditable(false);
-            blueNickname8.setEditable(false);
-            blueNickname9.setEditable(false);
-            blueNickname10.setEditable(false);
-            blueNickname11.setEditable(false);
-            blueNickname12.setEditable(false);
-            blueNickname13.setEditable(false);
-            blueNickname14.setEditable(false);
-            blueNickname15.setEditable(false);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -619,6 +733,36 @@ public class Entry extends javax.swing.JFrame {
             blueNickname13.setEditable(true);
             blueNickname14.setEditable(true);
             blueNickname15.setEditable(true);
+            redID1.setEditable(true);
+            redID2.setEditable(true);
+            redID3.setEditable(true);
+            redID4.setEditable(true);
+            redID5.setEditable(true);
+            redID6.setEditable(true);
+            redID7.setEditable(true);
+            redID8.setEditable(true);
+            redID9.setEditable(true);
+            redID10.setEditable(true);
+            redID11.setEditable(true);
+            redID12.setEditable(true);
+            redID13.setEditable(true);
+            redID14.setEditable(true);
+            redID15.setEditable(true);
+            redNickname1.setEditable(true);
+            redNickname2.setEditable(true);
+            redNickname3.setEditable(true);
+            redNickname4.setEditable(true);
+            redNickname5.setEditable(true);
+            redNickname6.setEditable(true);
+            redNickname7.setEditable(true);
+            redNickname8.setEditable(true);
+            redNickname9.setEditable(true);
+            redNickname10.setEditable(true);
+            redNickname11.setEditable(true);
+            redNickname12.setEditable(true);
+            redNickname13.setEditable(true);
+            redNickname14.setEditable(true);
+            redNickname15.setEditable(true);
         }
         else{
             editPlayers.setText("Edit Players (Off)");
@@ -652,6 +796,36 @@ public class Entry extends javax.swing.JFrame {
             blueNickname13.setEditable(false);
             blueNickname14.setEditable(false);
             blueNickname15.setEditable(false);
+            redID1.setEditable(false);
+            redID2.setEditable(false);
+            redID3.setEditable(false);
+            redID4.setEditable(false);
+            redID5.setEditable(false);
+            redID6.setEditable(false);
+            redID7.setEditable(false);
+            redID8.setEditable(false);
+            redID9.setEditable(false);
+            redID10.setEditable(false);
+            redID11.setEditable(false);
+            redID12.setEditable(false);
+            redID13.setEditable(false);
+            redID14.setEditable(false);
+            redID15.setEditable(false);
+            redNickname1.setEditable(false);
+            redNickname2.setEditable(false);
+            redNickname3.setEditable(false);
+            redNickname4.setEditable(false);
+            redNickname5.setEditable(false);
+            redNickname6.setEditable(false);
+            redNickname7.setEditable(false);
+            redNickname8.setEditable(false);
+            redNickname9.setEditable(false);
+            redNickname10.setEditable(false);
+            redNickname11.setEditable(false);
+            redNickname12.setEditable(false);
+            redNickname13.setEditable(false);
+            redNickname14.setEditable(false);
+            redNickname15.setEditable(false);
             
         }
 
@@ -739,6 +913,8 @@ public class Entry extends javax.swing.JFrame {
     private javax.swing.JTextField blueNickname7;
     private javax.swing.JTextField blueNickname8;
     private javax.swing.JTextField blueNickname9;
+    private javax.swing.JLabel bluePlayerCodenameLabel;
+    private javax.swing.JLabel bluePlayerIDLabel;
     private javax.swing.JLabel blueTeam;
     private javax.swing.JToggleButton editPlayers;
     private javax.swing.JLabel redCount1;
@@ -786,7 +962,8 @@ public class Entry extends javax.swing.JFrame {
     private javax.swing.JTextField redNickname7;
     private javax.swing.JTextField redNickname8;
     private javax.swing.JTextField redNickname9;
+    private javax.swing.JLabel redPlayerCodenameLabel;
+    private javax.swing.JLabel redPlayerIDLabel;
     private javax.swing.JLabel redTeam;
-    private java.awt.TextArea textArea1;
     // End of variables declaration//GEN-END:variables
 }

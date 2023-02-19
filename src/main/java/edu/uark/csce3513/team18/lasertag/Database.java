@@ -54,10 +54,8 @@ public class Database {
 	 */
 	private Player getPlayerFromResultSet(ResultSet rs) throws SQLException {
 		int id = rs.getInt("id");
-		String firstName = rs.getString("first_name");
-		String lastName = rs.getString("last_name");
 		String codeName = rs.getString("codename");
-		Player player = new Player(id, firstName, lastName, codeName);
+		Player player = new Player(id,codeName);
 		return player;
 	}
 
@@ -86,11 +84,9 @@ public class Database {
 	 */
 	public void createPlayer(Player player) throws SQLException {
 		PreparedStatement stmt = connection
-				.prepareStatement("INSERT INTO player (id, first_name, last_name, codename) VALUES (?, ?, ?, ?)");
+				.prepareStatement("INSERT INTO player (id, codename) VALUES (?, ?)");
 		stmt.setInt(1, player.getId());
-		stmt.setString(2, player.getFirstName());
-		stmt.setString(3, player.getLastName());
-		stmt.setString(4, player.getCodeName());
+		stmt.setString(2, player.getCodeName());
 		int rowsChanged = stmt.executeUpdate();
 		if (rowsChanged <= 0) {
 			throw new SQLException("Failed to create player: " + player.toString());
@@ -124,11 +120,9 @@ public class Database {
 	 */
 	public void updatePlayer(Player player) throws SQLException {
 		PreparedStatement stmt = connection
-				.prepareStatement("UPDATE player SET first_name = ?, last_name = ?, codename = ? WHERE id = ?");
-		stmt.setString(1, player.getFirstName());
-		stmt.setString(2, player.getLastName());
-		stmt.setString(3, player.getCodeName());
-		stmt.setInt(4, player.getId());
+				.prepareStatement("UPDATE player SET codename = ? WHERE id = ?");
+		stmt.setString(1, player.getCodeName());
+		stmt.setInt(2, player.getId());
 		int rowsChanged = stmt.executeUpdate();
 		if (rowsChanged <= 0) {
 			throw new SQLException("Failed to update player: " + player.toString());
