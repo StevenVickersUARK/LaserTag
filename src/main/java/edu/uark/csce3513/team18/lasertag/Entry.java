@@ -722,9 +722,11 @@ public class Entry extends javax.swing.JFrame {
             
             try {
                 database.connect();
-                if (database.getPlayer(newId).getId() == newId) {
-                    database.updatePlayer(playerSubmission);
-                } else {
+                try {
+                    if (database.getPlayer(newId).getId() == newId) {
+                        database.updatePlayer(playerSubmission);
+                    } 
+                } catch (SQLException er) {
                     database.createPlayer(playerSubmission);
                 }
             } catch (SQLException ex) {
