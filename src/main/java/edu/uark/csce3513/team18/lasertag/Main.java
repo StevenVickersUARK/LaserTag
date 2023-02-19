@@ -3,7 +3,7 @@ package edu.uark.csce3513.team18.lasertag;
 import java.sql.SQLException;
 import java.util.List;
 public class Main {
-    public static void main(String[] args) 
+    public static void main(String[] args) throws SQLException 
     {
         String url = "jdbc:postgresql://db.xbbsojmzbwlxprdwscxj.supabase.co:5432/postgres";
 		String username = "postgres";
@@ -20,8 +20,9 @@ public class Main {
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 		}
-        splashScreen splash = new splashScreen(); // declare splashScreen and call from main.java
-        splash.showSplashScreen();
+
+		new TeamIntroScreen();
+		new splashScreen().showSplashScreen();
 
         Entry entry = new Entry();
         entry.showEntryScreen();
