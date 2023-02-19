@@ -4,9 +4,12 @@
  */
 package edu.uark.csce3513.team18.lasertag;
 
+import java.sql.SQLException;
+import javax.swing.JTextField;
+
 /**
  *
- * @author Thomas 3.0
+ * @authors Steven, Cory
  */
 public class Entry extends javax.swing.JFrame {
 
@@ -700,6 +703,33 @@ public class Entry extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_blueID2ActionPerformed
 
+
+    private void submitPlayerEntry(JTextField id, JTextField codeName) {
+        String idInfo = id.getText();
+        if (idInfo.isEmpty()) {
+            return;
+        } else {
+            int newId = Integer.parseInt(idInfo);
+            String nickName = codeName.getText();
+        
+            Player newPlayer = new Player(newId, nickName);
+        
+            String url = "jdbc:postgresql://db.xbbsojmzbwlxprdwscxj.supabase.co:5432/postgres";
+            String username = "postgres";
+            String password = "team18isthebest";
+        
+            Database database = new Database(url, username, password);
+
+            try {
+                database.connect();
+                database.createPlayer(newPlayer);
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
+
+    
     private void editPlayersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editPlayersActionPerformed
         if(editPlayers.getText()=="Edit Players (Off)"){
             editPlayers.setText("Edit Players (On)");
@@ -827,6 +857,40 @@ public class Entry extends javax.swing.JFrame {
             redNickname14.setEditable(false);
             redNickname15.setEditable(false);
             
+
+            // SUBMIT PLAYER INFO TO DATABASE (BLUE TEAM)
+            submitPlayerEntry(blueID1, blueNickname1);
+            submitPlayerEntry(blueID2, blueNickname2);
+            submitPlayerEntry(blueID3, blueNickname3);
+            submitPlayerEntry(blueID4, blueNickname4);
+            submitPlayerEntry(blueID5, blueNickname5);
+            submitPlayerEntry(blueID6, blueNickname6);
+            submitPlayerEntry(blueID7, blueNickname7);
+            submitPlayerEntry(blueID8, blueNickname8);
+            submitPlayerEntry(blueID9, blueNickname9);
+            submitPlayerEntry(blueID10, blueNickname10);
+            submitPlayerEntry(blueID11, blueNickname11);
+            submitPlayerEntry(blueID12, blueNickname12);
+            submitPlayerEntry(blueID13, blueNickname13);
+            submitPlayerEntry(blueID14, blueNickname14);
+            submitPlayerEntry(blueID15, blueNickname15);
+        
+            // SUBMIT PLAYER INFO TO DATABASE (RED TEAM)
+            submitPlayerEntry(redID1, redNickname1);
+            submitPlayerEntry(redID2, redNickname2);
+            submitPlayerEntry(redID3, redNickname3);
+            submitPlayerEntry(redID4, redNickname4);
+            submitPlayerEntry(redID5, redNickname5);
+            submitPlayerEntry(redID6, redNickname6);
+            submitPlayerEntry(redID7, redNickname7);
+            submitPlayerEntry(redID8, redNickname8);
+            submitPlayerEntry(redID9, redNickname9);
+            submitPlayerEntry(redID10, redNickname10);
+            submitPlayerEntry(redID11, redNickname11);
+            submitPlayerEntry(redID12, redNickname12);
+            submitPlayerEntry(redID13, redNickname13);
+            submitPlayerEntry(redID14, redNickname14);
+            submitPlayerEntry(redID15, redNickname15);
         }
 
     }//GEN-LAST:event_editPlayersActionPerformed
