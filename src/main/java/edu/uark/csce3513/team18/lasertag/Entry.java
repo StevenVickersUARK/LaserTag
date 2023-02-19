@@ -712,17 +712,21 @@ public class Entry extends javax.swing.JFrame {
             int newId = Integer.parseInt(idInfo);
             String nickName = codeName.getText();
         
-            Player newPlayer = new Player(newId, nickName);
+            Player playerSubmission = new Player(newId, nickName);
         
             String url = "jdbc:postgresql://db.xbbsojmzbwlxprdwscxj.supabase.co:5432/postgres";
             String username = "postgres";
             String password = "team18isthebest";
         
             Database database = new Database(url, username, password);
-
+            
             try {
                 database.connect();
-                database.createPlayer(newPlayer);
+                if (database.getPlayer(newId).getId() == newId) {
+                    database.updatePlayer(playerSubmission);
+                } else {
+                    database.createPlayer(playerSubmission);
+                }
             } catch (SQLException ex) {
                 ex.printStackTrace();
             }
