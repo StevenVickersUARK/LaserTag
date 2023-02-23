@@ -12,22 +12,16 @@ package edu.uark.csce3513.team18.lasertag;
  */
 public class Player {
 	private int id;
-	private String firstName;
-	private String lastName;
 	private String codeName;
 
 	/**
 	 * Create a new player.
 	 * 
 	 * @param id        The ID of the player
-	 * @param firstName The first name of the player
-	 * @param lastName  The last name of the player
 	 * @param codeName  The codename of the player
 	 */
-	public Player(int id, String firstName, String lastName, String codeName) {
+	public Player(int id, String codeName) {
 		this.id = id;
-		this.firstName = firstName;
-		this.lastName = lastName;
 		this.codeName = codeName;
 	}
 
@@ -40,23 +34,6 @@ public class Player {
 		return id;
 	}
 
-	/**
-	 * Gets the first name associated with this player.
-	 * 
-	 * @return The first name associated with this player
-	 */
-	public String getFirstName() {
-		return firstName;
-	}
-
-	/**
-	 * Gets the last name associated with this player.
-	 * 
-	 * @return The last name associated with this player
-	 */
-	public String getLastName() {
-		return lastName;
-	}
 
 	/**
 	 * Gets the codename associated with this player.
@@ -68,7 +45,7 @@ public class Player {
 	}
 
 	public String toString() {
-		return String.format("Player %d: %s %s, codename %s", id, firstName, lastName, codeName);
+		return String.format("Player %d:, codename %s", id, codeName);
 	}
 
 	/**
