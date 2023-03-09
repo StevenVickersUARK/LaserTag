@@ -6,6 +6,7 @@ package edu.uark.csce3513.team18.lasertag;
 
 import java.sql.SQLException;
 import javax.swing.JTextField;
+import java.util.TimerTask;
 
 /**
  *
@@ -13,6 +14,7 @@ import javax.swing.JTextField;
  */
 public class Entry extends javax.swing.JFrame {
 
+    int timeLeft = 6;
     /**
      * Creates new form TempFrame
      */
@@ -353,6 +355,7 @@ public class Entry extends javax.swing.JFrame {
         });
 
         StartTimerLabel.setText("00:00");
+        StartTimerLabel.setFocusable(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -922,10 +925,38 @@ public class Entry extends javax.swing.JFrame {
     }//GEN-LAST:event_editPlayersActionPerformed
 
     private void startGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startGameActionPerformed
+        java.util.Timer timer = new java.util.Timer();
+        timeLeft = 6;
+        TimerTask timerTask = new TimerTask() {
+            public void run(){
+                StartTimerLabel.setText(Integer.toString(timeLeft));
+                timeLeft--;
+                if(timeLeft ==-1){
+                    timer.cancel();
+                    PlayerActionScreen playerActionScreen = new PlayerActionScreen();
+                    playerActionScreen.setVisible(true);
+                    setVisible(false);
+                }
+                
+            }
+        };
+        timer.scheduleAtFixedRate(timerTask, 1000, 1000);
+        
+        
+      
+    }//GEN-LAST:event_startGameActionPerformed
+
+    public void startTimer(){
+        CountdownTimer countdownTimer = new CountdownTimer(6);
+        countdownTimer.start();
+        while(countdownTimer.getCount()!=0){
+        StartTimerLabel.setText(String.valueOf(countdownTimer.getCount()));
+        }
+        
         PlayerActionScreen playerActionScreen = new PlayerActionScreen();
         playerActionScreen.setVisible(true);
         setVisible(false);
-    }//GEN-LAST:event_startGameActionPerformed
+    }
 
     /**
      * @param args the command line arguments
