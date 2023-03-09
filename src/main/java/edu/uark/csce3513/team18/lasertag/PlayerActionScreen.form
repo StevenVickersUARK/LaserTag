@@ -100,25 +100,30 @@
                   </Group>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="redNicknamePoints13" min="-2" max="-2" attributes="0"/>
-                  <Component id="redNicknamePoints14" min="-2" max="-2" attributes="0"/>
-                  <Component id="redNicknamePoints15" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="redNicknamePoints12" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="redNicknamePoints11" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="redNicknamePoints10" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="redNicknamePoints9" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="redNicknamePoints8" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="redNicknamePoints7" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="redNicknamePoints6" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="redNicknamePoints5" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="redNicknamePoints4" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="redNicknamePoints3" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="redNicknamePoints2" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="redNicknamePoints1" alignment="0" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="redNicknamePoints13" min="-2" max="-2" attributes="0"/>
+                          <Component id="redNicknamePoints14" min="-2" max="-2" attributes="0"/>
+                          <Component id="redNicknamePoints15" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="redNicknamePoints12" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="redNicknamePoints11" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="redNicknamePoints10" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="redNicknamePoints9" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="redNicknamePoints8" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="redNicknamePoints7" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="redNicknamePoints6" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="redNicknamePoints5" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="redNicknamePoints4" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="redNicknamePoints3" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="redNicknamePoints2" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="redNicknamePoints1" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="PlayerActionScrollPane" min="-2" pref="367" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="PlayActionTimerLabel" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="PlayerActionScrollPane" min="-2" pref="367" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -126,89 +131,8 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="RedTeamLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="RedTeamPointsLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="redNickname1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="redNicknamePoints1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="redNickname2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="redNicknamePoints2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="redNickname3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="redNicknamePoints3" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="redNickname4" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="redNicknamePoints4" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="redNickname5" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="redNicknamePoints5" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="redNickname6" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="redNicknamePoints6" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="redNickname7" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="redNicknamePoints7" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="redNickname8" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="redNicknamePoints8" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="redNickname9" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="redNicknamePoints9" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="redNickname10" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="redNicknamePoints10" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="redNickname11" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="redNicknamePoints11" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="redNickname12" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="redNicknamePoints12" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="redNickname13" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="redNicknamePoints13" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="redNickname14" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="redNicknamePoints14" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="redNicknamePoints15" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="redNickname15" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="BlueTeamLabel" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -289,14 +213,100 @@
                           <Component id="blueNickname15" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="blueNicknamePoints15" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="PlayerActionScrollPane" min="-2" pref="492" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="RedTeamLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="RedTeamPointsLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="PlayActionTimerLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="PlayerActionScrollPane" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="redNickname1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="redNicknamePoints1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="redNickname2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="redNicknamePoints2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="redNickname3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="redNicknamePoints3" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="redNickname4" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="redNicknamePoints4" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="redNickname5" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="redNicknamePoints5" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="redNickname6" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="redNicknamePoints6" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="redNickname7" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="redNicknamePoints7" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="redNickname8" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="redNicknamePoints8" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="redNickname9" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="redNicknamePoints9" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="redNickname10" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="redNicknamePoints10" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="redNickname11" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="redNicknamePoints11" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="redNickname12" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="redNicknamePoints12" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="redNickname13" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="redNicknamePoints13" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="redNickname14" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="redNicknamePoints14" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="redNicknamePoints15" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="redNickname15" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -669,5 +679,10 @@
         </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JLabel" name="PlayActionTimerLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="00:00"/>
+      </Properties>
+    </Component>
   </SubComponents>
 </Form>
