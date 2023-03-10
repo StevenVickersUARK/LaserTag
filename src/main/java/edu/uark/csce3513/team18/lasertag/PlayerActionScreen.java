@@ -10,7 +10,7 @@ import java.util.TimerTask;
  * @author Thomas 3.0
  */
 public class PlayerActionScreen extends javax.swing.JFrame {
-
+    int timeLeft = 300;
     /**
      * Creates new form PlayerActionScreen
      */
@@ -26,6 +26,19 @@ public class PlayerActionScreen extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.util.Timer timer = new java.util.Timer();
+
+        TimerTask timerTask = new TimerTask() {
+          public void run(){
+            PlayActionTimerLabel.setText("Seconds left: " + Integer.toString(timeLeft));
+            timeLeft--;
+            if(timeLeft ==-1){
+              timer.cancel();
+            }   
+          }
+        };
+        timer.scheduleAtFixedRate(timerTask, 1000, 1000);
+
 
         BlueTeamLabel = new javax.swing.JLabel();
         RedTeamLabel = new javax.swing.JLabel();

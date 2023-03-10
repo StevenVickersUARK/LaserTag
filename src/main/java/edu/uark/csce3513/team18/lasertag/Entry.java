@@ -14,7 +14,7 @@ import java.util.TimerTask;
  */
 public class Entry extends javax.swing.JFrame {
 
-    int timeLeft = 6;
+    int timeLeft = 5;
     /**
      * Creates new form TempFrame
      */
@@ -926,10 +926,10 @@ public class Entry extends javax.swing.JFrame {
 
     private void startGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startGameActionPerformed
         java.util.Timer timer = new java.util.Timer();
-        timeLeft = 6;
+        timeLeft = 5;
         TimerTask timerTask = new TimerTask() {
             public void run(){
-                StartTimerLabel.setText(Integer.toString(timeLeft));
+                StartTimerLabel.setText("Game will start in: " + Integer.toString(timeLeft));
                 timeLeft--;
                 if(timeLeft ==-1){
                     timer.cancel();
