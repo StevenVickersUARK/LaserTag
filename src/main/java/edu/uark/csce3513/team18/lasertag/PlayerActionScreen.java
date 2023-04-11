@@ -4,6 +4,7 @@
  */
 package edu.uark.csce3513.team18.lasertag;
 
+import java.io.IOException;
 import java.util.TimerTask;
 
 /**
@@ -29,12 +30,22 @@ public class PlayerActionScreen extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated
     // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        LaserTagUDPServer laserTagUDPServer = new LaserTagUDPServer();
+        try {
+            laserTagUDPServer.ServerStart();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            System.out.println("CATCH!!!!!");
+            e.printStackTrace();
+        }
         java.util.Timer timer = new java.util.Timer();
 
         TimerTask timerTask = new TimerTask() {
             public void run() {
                 PlayActionTimerLabel.setText("Seconds left: " + Integer.toString(timeLeft));
                 timeLeft--;
+                PlayerActionFeed.setText(LaserTagUDPServer.playerFeed);
+                System.out.println(LaserTagUDPServer.playerFeed);
                 if (timeLeft == -1) {
                     timer.cancel();
                 }
