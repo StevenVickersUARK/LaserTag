@@ -11,8 +11,6 @@ import java.lang.StringBuilder;
 
 public class LaserTagUDPServer {
 
-    static String playerFeed = "";
-
     public void ServerStart() throws IOException {
 
         // Step 1 : Create a socket to listen at port 7501
@@ -28,7 +26,11 @@ public class LaserTagUDPServer {
             // Step 3 : revieve the data in byte buffer.
             ds.receive(DpReceive);
 
-            playerFeed = playerFeed + data(receive) + "\n";
+            String line = data(receive).toString();
+            String[] playerIds = line.split(":");
+            int hitterId = Integer.parseInt(playerIds[0]);
+            int hitteeId = Integer.parseInt(playerIds[1]);
+            GameState.getGameState().sendHitEvent(hitterId, hitteeId);
 
             // Exit the server if the client sends "bye"
             if (data(receive).toString().equals("bye")) {

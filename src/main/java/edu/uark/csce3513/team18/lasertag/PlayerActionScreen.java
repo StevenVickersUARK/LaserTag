@@ -21,6 +21,66 @@ public class PlayerActionScreen extends javax.swing.JFrame {
         initComponents();
     }
 
+    private void updateScoreLabel(javax.swing.JLabel label, int score) {
+        String formattedPoints = String.format("%04d", score);
+        label.setText(formattedPoints);
+    }
+
+    private void updatePlayerScoreLabel(javax.swing.JLabel label, String fieldName) {
+        int score = GameState.getGameState().getPlayerScore(fieldName);
+        updateScoreLabel(label, score);
+    }
+
+    private void updateScoreLabelsAndFeed() {
+        GameState gs = GameState.getGameState();
+
+        // UPDATE PLAYER FIELD
+        String feed = gs.getFeed();
+        PlayerActionFeed.setText(feed);
+
+        // UPDATE BLUE TEAM SCORE
+        int blueTeamScore = gs.getBlueTeamScore();
+        updateScoreLabel(BlueTeamPointsLabel, blueTeamScore);
+
+        // UPDATE RED TEAM SCORE
+        int redTeamScore = gs.getRedTeamScore();
+        updateScoreLabel(RedTeamPointsLabel, redTeamScore);
+
+        // UPDATE PLAYER SCORES (BLUE TEAM)
+        updatePlayerScoreLabel(blueNicknamePoints1, "Blue1");
+        updatePlayerScoreLabel(blueNicknamePoints2, "Blue2");
+        updatePlayerScoreLabel(blueNicknamePoints3, "Blue3");
+        updatePlayerScoreLabel(blueNicknamePoints4, "Blue4");
+        updatePlayerScoreLabel(blueNicknamePoints5, "Blue5");
+        updatePlayerScoreLabel(blueNicknamePoints6, "Blue6");
+        updatePlayerScoreLabel(blueNicknamePoints7, "Blue7");
+        updatePlayerScoreLabel(blueNicknamePoints8, "Blue8");
+        updatePlayerScoreLabel(blueNicknamePoints9, "Blue9");
+        updatePlayerScoreLabel(blueNicknamePoints10, "Blue10");
+        updatePlayerScoreLabel(blueNicknamePoints11, "Blue11");
+        updatePlayerScoreLabel(blueNicknamePoints12, "Blue12");
+        updatePlayerScoreLabel(blueNicknamePoints13, "Blue13");
+        updatePlayerScoreLabel(blueNicknamePoints14, "Blue14");
+        updatePlayerScoreLabel(blueNicknamePoints15, "Blue15");
+
+        // UPDATE PLAYER SCORES (RED TEAM)
+        updatePlayerScoreLabel(redNicknamePoints1, "Red1");
+        updatePlayerScoreLabel(redNicknamePoints2, "Red2");
+        updatePlayerScoreLabel(redNicknamePoints3, "Red3");
+        updatePlayerScoreLabel(redNicknamePoints4, "Red4");
+        updatePlayerScoreLabel(redNicknamePoints5, "Red5");
+        updatePlayerScoreLabel(redNicknamePoints6, "Red6");
+        updatePlayerScoreLabel(redNicknamePoints7, "Red7");
+        updatePlayerScoreLabel(redNicknamePoints8, "Red8");
+        updatePlayerScoreLabel(redNicknamePoints9, "Red9");
+        updatePlayerScoreLabel(redNicknamePoints10, "Red10");
+        updatePlayerScoreLabel(redNicknamePoints11, "Red11");
+        updatePlayerScoreLabel(redNicknamePoints12, "Red12");
+        updatePlayerScoreLabel(redNicknamePoints13, "Red13");
+        updatePlayerScoreLabel(redNicknamePoints14, "Red14");
+        updatePlayerScoreLabel(redNicknamePoints15, "Red15");
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -44,8 +104,9 @@ public class PlayerActionScreen extends javax.swing.JFrame {
             public void run() {
                 PlayActionTimerLabel.setText("Seconds left: " + Integer.toString(timeLeft));
                 timeLeft--;
-                PlayerActionFeed.setText(LaserTagUDPServer.playerFeed);
-                System.out.println(LaserTagUDPServer.playerFeed);
+
+                updateScoreLabelsAndFeed();
+
                 if (timeLeft == -1) {
                     timer.cancel();
                 }
