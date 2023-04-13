@@ -92,7 +92,7 @@ public class PlayerActionScreen extends javax.swing.JFrame {
     private void initComponents() {
         LaserTagUDPServer laserTagUDPServer = new LaserTagUDPServer();
         try {
-            laserTagUDPServer.ServerStart();
+            laserTagUDPServer.start();
         } catch (IOException e) {
             // TODO Auto-generated catch block
             System.out.println("CATCH!!!!!");

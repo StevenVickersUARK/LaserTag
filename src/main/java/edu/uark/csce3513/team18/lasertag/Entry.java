@@ -7,13 +7,16 @@ package edu.uark.csce3513.team18.lasertag;
 import java.sql.SQLException;
 import javax.swing.JTextField;
 import java.util.TimerTask;
+import java.util.Timer;
 
 /**
  *
  * @authors Steven, Cory
  */
 public class Entry extends javax.swing.JFrame {
-    int timeLeft = 5;
+    private int timeLeft = 5;
+    private boolean isTimerRunning = false;
+    private Timer timer = new Timer();
 
     /**
      * Creates new form TempFrame
@@ -1354,23 +1357,25 @@ public class Entry extends javax.swing.JFrame {
     }
 
     private void startGameActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_startGameActionPerformed
-        java.util.Timer timer = new java.util.Timer();
-        timeLeft = 5;
-        TimerTask timerTask = new TimerTask() {
-            public void run() {
-                StartTimerLabel.setText("Game will start in: " + Integer.toString(timeLeft));
-                timeLeft--;
-                if (timeLeft == -1) {
-                    timer.cancel();
-                    addPlayersToGameState();
-                    PlayerActionScreen playerActionScreen = new PlayerActionScreen();
-                    playerActionScreen.setVisible(true);
-                    setVisible(false);
-                }
+        if (!isTimerRunning) {
+            timeLeft = 5;
+            TimerTask timerTask = new TimerTask() {
+                public void run() {
+                    StartTimerLabel.setText("Game will start in: " + Integer.toString(timeLeft));
+                    timeLeft--;
+                    if (timeLeft < 0) {
+                        timer.cancel();
+                        addPlayersToGameState();
+                        PlayerActionScreen playerActionScreen = new PlayerActionScreen();
+                        playerActionScreen.setVisible(true);
+                        setVisible(false);
+                    }
 
-            }
-        };
-        timer.scheduleAtFixedRate(timerTask, 1000, 1000);
+                }
+            };
+            timer.scheduleAtFixedRate(timerTask, 1000, 1000);
+            isTimerRunning = true;
+        }
 
     }// GEN-LAST:event_startGameActionPerformed
 
