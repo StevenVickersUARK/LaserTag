@@ -10,5 +10,6 @@
     "java.format.enabled": true,
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
-    "files.autoSave": "onFocusChange"
+    "files.autoSave": "onFocusChange",
+    "java.configuration.updateBuildConfiguration": "interactive"
 }
