@@ -4,18 +4,16 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class CountdownTimer {
-    int count = 0;
-    Timer timer;
-    boolean isRunning;
+    private int count = 0;
+    private Timer timer = new Timer();
+    private boolean isRunning = false;
 
     public CountdownTimer(int count) {
         this.count = count;
-        this.isRunning = false;
     }
 
-    public void start() {
+    public synchronized void start() {
         if (!isRunning) {
-            timer = new Timer();
             timer.scheduleAtFixedRate(new TimerTask() {
                 public void run() {
                     if (count > 0) {
