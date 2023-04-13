@@ -315,7 +315,6 @@ public class PlayerActionScreen extends javax.swing.JFrame {
         PlayerActionFeed.setEditable(false);
         PlayerActionFeed.setColumns(20);
         PlayerActionFeed.setRows(5);
-        PlayerActionFeed.setText("StaticSoap hit benjamin6817\nDomeDart hit StaticSoap\n\n");
         PlayerActionScrollPane.setViewportView(PlayerActionFeed);
 
         PlayActionTimerLabel.setText("00:00");
