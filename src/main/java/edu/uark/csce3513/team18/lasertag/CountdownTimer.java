@@ -28,7 +28,7 @@ public class CountdownTimer {
         }
     }
 
-    public void stop() {
+    public synchronized void stop() {
         if (isRunning) {
             timer.cancel();
             isRunning = false;
