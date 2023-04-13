@@ -91,13 +91,7 @@ public class PlayerActionScreen extends javax.swing.JFrame {
     // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
         LaserTagUDPServer laserTagUDPServer = new LaserTagUDPServer();
-        try {
-            laserTagUDPServer.start();
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            System.out.println("CATCH!!!!!");
-            e.printStackTrace();
-        }
+        laserTagUDPServer.start();
         java.util.Timer timer = new java.util.Timer();
 
         TimerTask timerTask = new TimerTask() {
