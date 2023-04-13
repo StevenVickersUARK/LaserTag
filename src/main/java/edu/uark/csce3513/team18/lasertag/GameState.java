@@ -38,7 +38,7 @@ public class GameState {
         printToFeed(hitterName + " hit " + hitteeName);
     }
 
-    public GameState() {
+    private GameState() {
         players = new HashMap<>();
         playerTeams = new HashMap<>();
         playerFieldNames = new HashMap<>();
