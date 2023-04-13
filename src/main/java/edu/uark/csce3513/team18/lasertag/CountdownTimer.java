@@ -18,7 +18,6 @@ public class CountdownTimer {
                 public void run() {
                     if (count > 0) {
                         count--;
-                        System.out.println(count);
                     } else {
                         stop();
                     }

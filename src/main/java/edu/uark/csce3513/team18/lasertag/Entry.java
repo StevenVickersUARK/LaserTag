@@ -1374,18 +1374,6 @@ public class Entry extends javax.swing.JFrame {
 
     }// GEN-LAST:event_startGameActionPerformed
 
-    public void startTimer() {
-        CountdownTimer countdownTimer = new CountdownTimer(6);
-        countdownTimer.start();
-        while (countdownTimer.getCount() != 0) {
-            StartTimerLabel.setText(String.valueOf(countdownTimer.getCount()));
-        }
-
-        PlayerActionScreen playerActionScreen = new PlayerActionScreen();
-        playerActionScreen.setVisible(true);
-        setVisible(false);
-    }
-
     public void showEntryScreen() {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
