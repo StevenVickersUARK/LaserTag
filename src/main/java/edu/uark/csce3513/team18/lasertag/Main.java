@@ -11,11 +11,6 @@ public class Main {
         try {
             Database database = Database.getDatabase();
             database.connect();
-            List<Player> players = database.getPlayers();
-            System.out.println("Players:");
-            for (Player player : players) {
-                player.print();
-            }
         } catch (SQLException ex) {
             System.err.println("Failed to connect to database!");
             ex.printStackTrace();
