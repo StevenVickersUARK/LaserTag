@@ -7,6 +7,9 @@ package edu.uark.csce3513.team18.lasertag;
 import java.io.IOException;
 import java.util.TimerTask;
 
+import javax.swing.JOptionPane;
+import javax.swing.text.DefaultCaret;
+
 /**
  *
  * @author
@@ -103,6 +106,7 @@ public class PlayerActionScreen extends javax.swing.JFrame {
 
                 if (timeLeft == -1) {
                     timer.cancel();
+                    JOptionPane.showMessageDialog(null, "GAME OVER");
                 }
             }
         };
@@ -174,6 +178,8 @@ public class PlayerActionScreen extends javax.swing.JFrame {
         redNicknamePoints15 = new javax.swing.JLabel();
         PlayerActionScrollPane = new javax.swing.JScrollPane();
         PlayerActionFeed = new javax.swing.JTextArea();
+        DefaultCaret caret = (DefaultCaret) PlayerActionFeed.getCaret();
+        caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
         PlayActionTimerLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);

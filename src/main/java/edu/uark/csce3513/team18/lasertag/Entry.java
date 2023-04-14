@@ -383,7 +383,7 @@ public class Entry extends javax.swing.JFrame {
             }
         });
 
-        StartTimerLabel.setText("00:00");
+        StartTimerLabel.setText(" ");
         StartTimerLabel.setFocusable(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
