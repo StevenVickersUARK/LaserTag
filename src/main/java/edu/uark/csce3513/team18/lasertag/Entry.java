@@ -7,13 +7,16 @@ package edu.uark.csce3513.team18.lasertag;
 import java.sql.SQLException;
 import javax.swing.JTextField;
 import java.util.TimerTask;
+import java.util.Timer;
 
 /**
  *
  * @authors Steven, Cory
  */
 public class Entry extends javax.swing.JFrame {
-    int timeLeft = 5;
+    private int timeLeft = 5;
+    private boolean isTimerRunning = false;
+    private Timer timer = new Timer();
 
     /**
      * Creates new form TempFrame
@@ -1304,37 +1307,77 @@ public class Entry extends javax.swing.JFrame {
 
     }// GEN-LAST:event_editPlayersActionPerformed
 
-    private void startGameActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_startGameActionPerformed
-        java.util.Timer timer = new java.util.Timer();
-        timeLeft = 5;
-        TimerTask timerTask = new TimerTask() {
-            public void run() {
-                StartTimerLabel.setText("Game will start in: " + Integer.toString(timeLeft));
-                timeLeft--;
-                if (timeLeft == -1) {
-                    timer.cancel();
-                    PlayerActionScreen playerActionScreen = new PlayerActionScreen();
-                    playerActionScreen.setVisible(true);
-                    setVisible(false);
-                }
+    private void addPlayerToGameState(JTextField idField, JTextField codeNameField, GameState.Team team,
+            String fieldName) {
+        int id = getId(idField);
+        String codeName = codeNameField.getText();
 
-            }
-        };
-        timer.scheduleAtFixedRate(timerTask, 1000, 1000);
-
-    }// GEN-LAST:event_startGameActionPerformed
-
-    public void startTimer() {
-        CountdownTimer countdownTimer = new CountdownTimer(6);
-        countdownTimer.start();
-        while (countdownTimer.getCount() != 0) {
-            StartTimerLabel.setText(String.valueOf(countdownTimer.getCount()));
+        if (id < 0) {
+            return;
         }
 
-        PlayerActionScreen playerActionScreen = new PlayerActionScreen();
-        playerActionScreen.setVisible(true);
-        setVisible(false);
+        Player player = new Player(id, codeName);
+        GameState.getGameState().putPlayer(team, player, fieldName);
     }
+
+    private void addPlayersToGameState() {
+        // SUBMIT PLAYER INFO TO DATABASE (BLUE TEAM)
+        addPlayerToGameState(blueID1, blueNickname1, GameState.Team.Blue, "Blue1");
+        addPlayerToGameState(blueID2, blueNickname2, GameState.Team.Blue, "Blue2");
+        addPlayerToGameState(blueID3, blueNickname3, GameState.Team.Blue, "Blue3");
+        addPlayerToGameState(blueID4, blueNickname4, GameState.Team.Blue, "Blue4");
+        addPlayerToGameState(blueID5, blueNickname5, GameState.Team.Blue, "Blue5");
+        addPlayerToGameState(blueID6, blueNickname6, GameState.Team.Blue, "Blue6");
+        addPlayerToGameState(blueID7, blueNickname7, GameState.Team.Blue, "Blue7");
+        addPlayerToGameState(blueID8, blueNickname8, GameState.Team.Blue, "Blue8");
+        addPlayerToGameState(blueID9, blueNickname9, GameState.Team.Blue, "Blue9");
+        addPlayerToGameState(blueID10, blueNickname10, GameState.Team.Blue, "Blue10");
+        addPlayerToGameState(blueID11, blueNickname11, GameState.Team.Blue, "Blue11");
+        addPlayerToGameState(blueID12, blueNickname12, GameState.Team.Blue, "Blue12");
+        addPlayerToGameState(blueID13, blueNickname13, GameState.Team.Blue, "Blue13");
+        addPlayerToGameState(blueID14, blueNickname14, GameState.Team.Blue, "Blue14");
+        addPlayerToGameState(blueID15, blueNickname15, GameState.Team.Blue, "Blue15");
+
+        // SUBMIT PLAYER INFO TO DATABASE (RED TEAM)
+        addPlayerToGameState(redID1, redNickname1, GameState.Team.Red, "Red1");
+        addPlayerToGameState(redID2, redNickname2, GameState.Team.Red, "Red2");
+        addPlayerToGameState(redID3, redNickname3, GameState.Team.Red, "Red3");
+        addPlayerToGameState(redID4, redNickname4, GameState.Team.Red, "Red4");
+        addPlayerToGameState(redID5, redNickname5, GameState.Team.Red, "Red5");
+        addPlayerToGameState(redID6, redNickname6, GameState.Team.Red, "Red6");
+        addPlayerToGameState(redID7, redNickname7, GameState.Team.Red, "Red7");
+        addPlayerToGameState(redID8, redNickname8, GameState.Team.Red, "Red8");
+        addPlayerToGameState(redID9, redNickname9, GameState.Team.Red, "Red9");
+        addPlayerToGameState(redID10, redNickname10, GameState.Team.Red, "Red10");
+        addPlayerToGameState(redID11, redNickname11, GameState.Team.Red, "Red11");
+        addPlayerToGameState(redID12, redNickname12, GameState.Team.Red, "Red12");
+        addPlayerToGameState(redID13, redNickname13, GameState.Team.Red, "Red13");
+        addPlayerToGameState(redID14, redNickname14, GameState.Team.Red, "Red14");
+        addPlayerToGameState(redID15, redNickname15, GameState.Team.Red, "Red15");
+    }
+
+    private void startGameActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_startGameActionPerformed
+        if (!isTimerRunning) {
+            timeLeft = 5;
+            TimerTask timerTask = new TimerTask() {
+                public void run() {
+                    StartTimerLabel.setText("Game will start in: " + Integer.toString(timeLeft));
+                    timeLeft--;
+                    if (timeLeft < 0) {
+                        timer.cancel();
+                        addPlayersToGameState();
+                        PlayerActionScreen playerActionScreen = new PlayerActionScreen();
+                        playerActionScreen.setVisible(true);
+                        setVisible(false);
+                    }
+
+                }
+            };
+            timer.scheduleAtFixedRate(timerTask, 1000, 1000);
+            isTimerRunning = true;
+        }
+
+    }// GEN-LAST:event_startGameActionPerformed
 
     public void showEntryScreen() {
         try {
