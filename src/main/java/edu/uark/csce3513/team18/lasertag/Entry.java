@@ -10,6 +10,8 @@ import java.util.TimerTask;
 import java.util.Timer;
 
 import javax.sound.sampled.*;
+
+import java.awt.Color;
 import java.io.*;
 import java.util.Random;
 
@@ -373,7 +375,11 @@ public class Entry extends javax.swing.JFrame {
         startGame.setText("Start Game!");
         startGame.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                startGameActionPerformed(evt);
+                try {
+                    startGameActionPerformed(evt);
+                } catch (Exception e) {
+                    System.out.println(e.toString());
+                }
             }
         });
 
@@ -1122,191 +1128,163 @@ public class Entry extends javax.swing.JFrame {
         nicknameField.setText(nickname);
     }
 
-    private void submitPlayerEntry(JTextField id, JTextField codeName) {
+    private boolean checkPlayerEntry(JTextField id, JTextField codeName) {
+        updateCodeName(id, codeName);
         String idInfo = id.getText();
-        if (idInfo.isEmpty()) {
-            return;
+        String nickName = codeName.getText();
+        if (idInfo.isEmpty() && !nickName.isEmpty()) {
+            codeName.setBackground(Color.WHITE);
+            id.setBackground(Color.RED);
+            return false;
+        } else if (!idInfo.isEmpty() && nickName.isEmpty()) {
+            id.setBackground(Color.WHITE);
+            codeName.setBackground(Color.RED);
+            return false;
         } else {
-            int newId = Integer.parseInt(idInfo);
-            String nickName = codeName.getText();
+            id.setBackground(Color.WHITE);
+            codeName.setBackground(Color.WHITE);
+            return true;
+        }
+    }
 
+    private void submitPlayerEntry(JTextField id, JTextField codeName) throws Exception {
+        try {
+            String idInfo = id.getText();
+            String nickName = codeName.getText();
+            int newId = Integer.parseInt(idInfo);
             Player playerSubmission = new Player(newId, nickName);
 
-            try {
-                Database database = Database.getDatabase();
-                database.connect();
+            if (checkPlayerEntry(id, codeName)) {
                 try {
-                    if (database.getPlayer(newId).getId() == newId) {
-                        database.updatePlayer(playerSubmission);
+                    Database database = Database.getDatabase();
+                    database.connect();
+                    try {
+                        if (database.getPlayer(newId).getId() == newId) {
+                            database.updatePlayer(playerSubmission);
+                        }
+                    } catch (SQLException er) {
+                        database.createPlayer(playerSubmission);
                     }
-                } catch (SQLException er) {
-                    database.createPlayer(playerSubmission);
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
                 }
-            } catch (SQLException ex) {
-                ex.printStackTrace();
+            } else {
+                throw new Exception("Please ensure provided User details have valid ID's/Codenames.");
             }
+        } catch (Exception ex) {
+            return;
         }
+    }
+
+    private void setPlayerNotEditable(JTextField id, JTextField codeName) {
+        id.setEditable(false);
+        codeName.setEditable(false);
+    }
+
+    private void setPlayerEditable(JTextField id, JTextField codeName) {
+        id.setEditable(true);
+        codeName.setEditable(true);
     }
 
     private void editPlayersActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_editPlayersActionPerformed
         if (editPlayers.getText() == "Edit Players (Off)") {
             editPlayers.setText("Edit Players (On)");
-            blueID1.setEditable(true);
-            blueID2.setEditable(true);
-            blueID3.setEditable(true);
-            blueID4.setEditable(true);
-            blueID5.setEditable(true);
-            blueID6.setEditable(true);
-            blueID7.setEditable(true);
-            blueID8.setEditable(true);
-            blueID9.setEditable(true);
-            blueID10.setEditable(true);
-            blueID11.setEditable(true);
-            blueID12.setEditable(true);
-            blueID13.setEditable(true);
-            blueID14.setEditable(true);
-            blueID15.setEditable(true);
-            blueNickname1.setEditable(true);
-            blueNickname2.setEditable(true);
-            blueNickname3.setEditable(true);
-            blueNickname4.setEditable(true);
-            blueNickname5.setEditable(true);
-            blueNickname6.setEditable(true);
-            blueNickname7.setEditable(true);
-            blueNickname8.setEditable(true);
-            blueNickname9.setEditable(true);
-            blueNickname10.setEditable(true);
-            blueNickname11.setEditable(true);
-            blueNickname12.setEditable(true);
-            blueNickname13.setEditable(true);
-            blueNickname14.setEditable(true);
-            blueNickname15.setEditable(true);
-            redID1.setEditable(true);
-            redID2.setEditable(true);
-            redID3.setEditable(true);
-            redID4.setEditable(true);
-            redID5.setEditable(true);
-            redID6.setEditable(true);
-            redID7.setEditable(true);
-            redID8.setEditable(true);
-            redID9.setEditable(true);
-            redID10.setEditable(true);
-            redID11.setEditable(true);
-            redID12.setEditable(true);
-            redID13.setEditable(true);
-            redID14.setEditable(true);
-            redID15.setEditable(true);
-            redNickname1.setEditable(true);
-            redNickname2.setEditable(true);
-            redNickname3.setEditable(true);
-            redNickname4.setEditable(true);
-            redNickname5.setEditable(true);
-            redNickname6.setEditable(true);
-            redNickname7.setEditable(true);
-            redNickname8.setEditable(true);
-            redNickname9.setEditable(true);
-            redNickname10.setEditable(true);
-            redNickname11.setEditable(true);
-            redNickname12.setEditable(true);
-            redNickname13.setEditable(true);
-            redNickname14.setEditable(true);
-            redNickname15.setEditable(true);
+            setPlayerEditable(blueID1, blueNickname1);
+            setPlayerEditable(blueID2, blueNickname2);
+            setPlayerEditable(blueID3, blueNickname3);
+            setPlayerEditable(blueID4, blueNickname4);
+            setPlayerEditable(blueID5, blueNickname5);
+            setPlayerEditable(blueID6, blueNickname6);
+            setPlayerEditable(blueID7, blueNickname7);
+            setPlayerEditable(blueID8, blueNickname8);
+            setPlayerEditable(blueID9, blueNickname9);
+            setPlayerEditable(blueID10, blueNickname10);
+            setPlayerEditable(blueID11, blueNickname11);
+            setPlayerEditable(blueID12, blueNickname12);
+            setPlayerEditable(blueID13, blueNickname13);
+            setPlayerEditable(blueID14, blueNickname14);
+            setPlayerEditable(blueID15, blueNickname15);
+            setPlayerEditable(redID1, redNickname1);
+            setPlayerEditable(redID2, redNickname2);
+            setPlayerEditable(redID3, redNickname3);
+            setPlayerEditable(redID4, redNickname4);
+            setPlayerEditable(redID5, redNickname5);
+            setPlayerEditable(redID6, redNickname6);
+            setPlayerEditable(redID7, redNickname7);
+            setPlayerEditable(redID8, redNickname8);
+            setPlayerEditable(redID9, redNickname9);
+            setPlayerEditable(redID10, redNickname10);
+            setPlayerEditable(redID11, redNickname11);
+            setPlayerEditable(redID12, redNickname12);
+            setPlayerEditable(redID13, redNickname13);
+            setPlayerEditable(redID14, redNickname14);
+            setPlayerEditable(redID15, redNickname15);
         } else {
             editPlayers.setText("Edit Players (Off)");
-            blueID1.setEditable(false);
-            blueID2.setEditable(false);
-            blueID3.setEditable(false);
-            blueID4.setEditable(false);
-            blueID5.setEditable(false);
-            blueID6.setEditable(false);
-            blueID7.setEditable(false);
-            blueID8.setEditable(false);
-            blueID9.setEditable(false);
-            blueID10.setEditable(false);
-            blueID11.setEditable(false);
-            blueID12.setEditable(false);
-            blueID13.setEditable(false);
-            blueID14.setEditable(false);
-            blueID15.setEditable(false);
-            blueNickname1.setEditable(false);
-            blueNickname2.setEditable(false);
-            blueNickname3.setEditable(false);
-            blueNickname4.setEditable(false);
-            blueNickname5.setEditable(false);
-            blueNickname6.setEditable(false);
-            blueNickname7.setEditable(false);
-            blueNickname8.setEditable(false);
-            blueNickname9.setEditable(false);
-            blueNickname10.setEditable(false);
-            blueNickname11.setEditable(false);
-            blueNickname12.setEditable(false);
-            blueNickname13.setEditable(false);
-            blueNickname14.setEditable(false);
-            blueNickname15.setEditable(false);
-            redID1.setEditable(false);
-            redID2.setEditable(false);
-            redID3.setEditable(false);
-            redID4.setEditable(false);
-            redID5.setEditable(false);
-            redID6.setEditable(false);
-            redID7.setEditable(false);
-            redID8.setEditable(false);
-            redID9.setEditable(false);
-            redID10.setEditable(false);
-            redID11.setEditable(false);
-            redID12.setEditable(false);
-            redID13.setEditable(false);
-            redID14.setEditable(false);
-            redID15.setEditable(false);
-            redNickname1.setEditable(false);
-            redNickname2.setEditable(false);
-            redNickname3.setEditable(false);
-            redNickname4.setEditable(false);
-            redNickname5.setEditable(false);
-            redNickname6.setEditable(false);
-            redNickname7.setEditable(false);
-            redNickname8.setEditable(false);
-            redNickname9.setEditable(false);
-            redNickname10.setEditable(false);
-            redNickname11.setEditable(false);
-            redNickname12.setEditable(false);
-            redNickname13.setEditable(false);
-            redNickname14.setEditable(false);
-            redNickname15.setEditable(false);
+            setPlayerNotEditable(blueID1, blueNickname1);
+            setPlayerNotEditable(blueID2, blueNickname2);
+            setPlayerNotEditable(blueID3, blueNickname3);
+            setPlayerNotEditable(blueID4, blueNickname4);
+            setPlayerNotEditable(blueID5, blueNickname5);
+            setPlayerNotEditable(blueID6, blueNickname6);
+            setPlayerNotEditable(blueID7, blueNickname7);
+            setPlayerNotEditable(blueID8, blueNickname8);
+            setPlayerNotEditable(blueID9, blueNickname9);
+            setPlayerNotEditable(blueID10, blueNickname10);
+            setPlayerNotEditable(blueID11, blueNickname11);
+            setPlayerNotEditable(blueID12, blueNickname12);
+            setPlayerNotEditable(blueID13, blueNickname13);
+            setPlayerNotEditable(blueID14, blueNickname14);
+            setPlayerNotEditable(blueID15, blueNickname15);
+            setPlayerNotEditable(redID1, redNickname1);
+            setPlayerNotEditable(redID2, redNickname2);
+            setPlayerNotEditable(redID3, redNickname3);
+            setPlayerNotEditable(redID4, redNickname4);
+            setPlayerNotEditable(redID5, redNickname5);
+            setPlayerNotEditable(redID6, redNickname6);
+            setPlayerNotEditable(redID7, redNickname7);
+            setPlayerNotEditable(redID8, redNickname8);
+            setPlayerNotEditable(redID9, redNickname9);
+            setPlayerNotEditable(redID10, redNickname10);
+            setPlayerNotEditable(redID11, redNickname11);
+            setPlayerNotEditable(redID12, redNickname12);
+            setPlayerNotEditable(redID13, redNickname13);
+            setPlayerNotEditable(redID14, redNickname14);
+            setPlayerNotEditable(redID15, redNickname15);
 
-            // SUBMIT PLAYER INFO TO DATABASE (BLUE TEAM)
-            submitPlayerEntry(blueID1, blueNickname1);
-            submitPlayerEntry(blueID2, blueNickname2);
-            submitPlayerEntry(blueID3, blueNickname3);
-            submitPlayerEntry(blueID4, blueNickname4);
-            submitPlayerEntry(blueID5, blueNickname5);
-            submitPlayerEntry(blueID6, blueNickname6);
-            submitPlayerEntry(blueID7, blueNickname7);
-            submitPlayerEntry(blueID8, blueNickname8);
-            submitPlayerEntry(blueID9, blueNickname9);
-            submitPlayerEntry(blueID10, blueNickname10);
-            submitPlayerEntry(blueID11, blueNickname11);
-            submitPlayerEntry(blueID12, blueNickname12);
-            submitPlayerEntry(blueID13, blueNickname13);
-            submitPlayerEntry(blueID14, blueNickname14);
-            submitPlayerEntry(blueID15, blueNickname15);
+            // CHECK PLAYER INFO FOR BLANK VALUES (IF ID/CODENAME GIVEN) (BLUE TEAM)
+            checkPlayerEntry(blueID1, blueNickname1);
+            checkPlayerEntry(blueID2, blueNickname2);
+            checkPlayerEntry(blueID3, blueNickname3);
+            checkPlayerEntry(blueID4, blueNickname4);
+            checkPlayerEntry(blueID5, blueNickname5);
+            checkPlayerEntry(blueID6, blueNickname6);
+            checkPlayerEntry(blueID7, blueNickname7);
+            checkPlayerEntry(blueID8, blueNickname8);
+            checkPlayerEntry(blueID9, blueNickname9);
+            checkPlayerEntry(blueID10, blueNickname10);
+            checkPlayerEntry(blueID11, blueNickname11);
+            checkPlayerEntry(blueID12, blueNickname12);
+            checkPlayerEntry(blueID13, blueNickname13);
+            checkPlayerEntry(blueID14, blueNickname14);
+            checkPlayerEntry(blueID15, blueNickname15);
 
-            // SUBMIT PLAYER INFO TO DATABASE (RED TEAM)
-            submitPlayerEntry(redID1, redNickname1);
-            submitPlayerEntry(redID2, redNickname2);
-            submitPlayerEntry(redID3, redNickname3);
-            submitPlayerEntry(redID4, redNickname4);
-            submitPlayerEntry(redID5, redNickname5);
-            submitPlayerEntry(redID6, redNickname6);
-            submitPlayerEntry(redID7, redNickname7);
-            submitPlayerEntry(redID8, redNickname8);
-            submitPlayerEntry(redID9, redNickname9);
-            submitPlayerEntry(redID10, redNickname10);
-            submitPlayerEntry(redID11, redNickname11);
-            submitPlayerEntry(redID12, redNickname12);
-            submitPlayerEntry(redID13, redNickname13);
-            submitPlayerEntry(redID14, redNickname14);
-            submitPlayerEntry(redID15, redNickname15);
+            // CHECK PLAYER INFO FOR BLANK VALUES (IF ID/CODENAME GIVEN) (BLUE TEAM)
+            checkPlayerEntry(redID1, redNickname1);
+            checkPlayerEntry(redID2, redNickname2);
+            checkPlayerEntry(redID3, redNickname3);
+            checkPlayerEntry(redID4, redNickname4);
+            checkPlayerEntry(redID5, redNickname5);
+            checkPlayerEntry(redID6, redNickname6);
+            checkPlayerEntry(redID7, redNickname7);
+            checkPlayerEntry(redID8, redNickname8);
+            checkPlayerEntry(redID9, redNickname9);
+            checkPlayerEntry(redID10, redNickname10);
+            checkPlayerEntry(redID11, redNickname11);
+            checkPlayerEntry(redID12, redNickname12);
+            checkPlayerEntry(redID13, redNickname13);
+            checkPlayerEntry(redID14, redNickname14);
+            checkPlayerEntry(redID15, redNickname15);
         }
 
     }// GEN-LAST:event_editPlayersActionPerformed
@@ -1360,7 +1338,41 @@ public class Entry extends javax.swing.JFrame {
         addPlayerToGameState(redID15, redNickname15, GameState.Team.Red, "Red15");
     }
 
-    private void startGameActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_startGameActionPerformed
+    private void startGameActionPerformed(java.awt.event.ActionEvent evt) throws Exception {// GEN-FIRST:event_startGameActionPerformed
+
+        // SUBMIT PLAYER INFO TO DATABASE (BLUE TEAM)
+        submitPlayerEntry(blueID1, blueNickname1);
+        submitPlayerEntry(blueID2, blueNickname2);
+        submitPlayerEntry(blueID3, blueNickname3);
+        submitPlayerEntry(blueID4, blueNickname4);
+        submitPlayerEntry(blueID5, blueNickname5);
+        submitPlayerEntry(blueID6, blueNickname6);
+        submitPlayerEntry(blueID7, blueNickname7);
+        submitPlayerEntry(blueID8, blueNickname8);
+        submitPlayerEntry(blueID9, blueNickname9);
+        submitPlayerEntry(blueID10, blueNickname10);
+        submitPlayerEntry(blueID11, blueNickname11);
+        submitPlayerEntry(blueID12, blueNickname12);
+        submitPlayerEntry(blueID13, blueNickname13);
+        submitPlayerEntry(blueID14, blueNickname14);
+        submitPlayerEntry(blueID15, blueNickname15);
+
+        // SUBMIT PLAYER INFO TO DATABASE (RED TEAM)
+        submitPlayerEntry(redID1, redNickname1);
+        submitPlayerEntry(redID2, redNickname2);
+        submitPlayerEntry(redID3, redNickname3);
+        submitPlayerEntry(redID4, redNickname4);
+        submitPlayerEntry(redID5, redNickname5);
+        submitPlayerEntry(redID6, redNickname6);
+        submitPlayerEntry(redID7, redNickname7);
+        submitPlayerEntry(redID8, redNickname8);
+        submitPlayerEntry(redID9, redNickname9);
+        submitPlayerEntry(redID10, redNickname10);
+        submitPlayerEntry(redID11, redNickname11);
+        submitPlayerEntry(redID12, redNickname12);
+        submitPlayerEntry(redID13, redNickname13);
+        submitPlayerEntry(redID14, redNickname14);
+        submitPlayerEntry(redID15, redNickname15);
 
         if (!isTimerRunning) {
             try {
