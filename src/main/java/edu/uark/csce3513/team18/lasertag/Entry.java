@@ -9,6 +9,10 @@ import javax.swing.JTextField;
 import java.util.TimerTask;
 import java.util.Timer;
 
+import javax.sound.sampled.*;
+import java.io.*;
+import java.util.Random;
+
 /**
  *
  * @authors Steven, Cory
@@ -1357,26 +1361,79 @@ public class Entry extends javax.swing.JFrame {
     }
 
     private void startGameActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_startGameActionPerformed
+
         if (!isTimerRunning) {
-            timeLeft = 5;
-            TimerTask timerTask = new TimerTask() {
-                public void run() {
-                    StartTimerLabel.setText("Game will start in: " + Integer.toString(timeLeft));
-                    timeLeft--;
-                    if (timeLeft < 0) {
-                        timer.cancel();
-                        addPlayersToGameState();
-                        PlayerActionScreen playerActionScreen = new PlayerActionScreen();
-                        playerActionScreen.setVisible(true);
-                        setVisible(false);
-                    }
+            try {
+                // Generate random numbers and assign track
+                String filePath = "";
+                Random random = new Random();
+                int randomNumber = random.nextInt(7) % 7;
 
+                if (randomNumber == 0) {
+                    filePath = "src/main/resources/Track01.wav";
+                } else if (randomNumber == 1) {
+                    filePath = "src/main/resources/Track02.wav";
+                } else if (randomNumber == 2) {
+                    filePath = "src/main/resources/Track03.wav";
+                } else if (randomNumber == 3) {
+                    filePath = "src/main/resources/Track04.wav";
+                } else if (randomNumber == 4) {
+                    filePath = "src/main/resources/Track06.wav";
+                } else if (randomNumber == 5) {
+                    filePath = "src/main/resources/Track07.wav";
+                } else {
+                    filePath = "src/main/resources/Track08.wav";
                 }
-            };
-            timer.scheduleAtFixedRate(timerTask, 1000, 1000);
-            isTimerRunning = true;
-        }
 
+                AudioInputStream audioStream = AudioSystem.getAudioInputStream(new File(filePath));
+                AudioFormat format = audioStream.getFormat();
+                DataLine.Info info = new DataLine.Info(Clip.class, format);
+                Clip clip = (Clip) AudioSystem.getLine(info);
+
+                // play in separate thread
+                clip.open(audioStream);
+                Thread playThread = new Thread(() -> {
+                    clip.start();
+                    try {
+                        Thread.sleep(clip.getMicrosecondLength() / 1000); // wait until song ends
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    clip.stop();
+                    clip.close();
+                    try {
+                        audioStream.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                });
+                playThread.start();
+
+                // run timer while song is still playing
+                Thread.sleep(8000); // wait for track sync with timer
+                timeLeft = 5;
+                TimerTask timerTask = new TimerTask() {
+                    public void run() {
+                        StartTimerLabel.setText("Game will start in: " + Integer.toString(timeLeft));
+                        timeLeft--;
+                        if (timeLeft < 0) {
+                            timer.cancel();
+                            addPlayersToGameState();
+                            PlayerActionScreen playerActionScreen = new PlayerActionScreen();
+                            playerActionScreen.setVisible(true);
+                            setVisible(false);
+                        }
+
+                    }
+                };
+                timer.scheduleAtFixedRate(timerTask, 1000, 1000);
+                isTimerRunning = true;
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        }
     }// GEN-LAST:event_startGameActionPerformed
 
     public void showEntryScreen() {
