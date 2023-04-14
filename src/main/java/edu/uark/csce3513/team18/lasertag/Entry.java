@@ -373,7 +373,7 @@ public class Entry extends javax.swing.JFrame {
             }
         });
 
-        StartTimerLabel.setText("00:00");
+        StartTimerLabel.setText(" ");
         StartTimerLabel.setFocusable(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -1358,7 +1358,7 @@ public class Entry extends javax.swing.JFrame {
 
     private void startGameActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_startGameActionPerformed
         if (!isTimerRunning) {
-            timeLeft = 5;
+            timeLeft = 30;
             TimerTask timerTask = new TimerTask() {
                 public void run() {
                     StartTimerLabel.setText("Game will start in: " + Integer.toString(timeLeft));
